@@ -1,3 +1,4 @@
+package Benchmarks;
 public class SelectionSort
 {
   // Sorts a[0], ..., a[size-1] in ascending order

@@ -1,3 +1,4 @@
+package Benchmarks;
 /*
  * This program compares benchmarks for Selection Sort,
  * Insertion Sort, and Mergesort (and Arrays.sort for
@@ -72,8 +73,36 @@ public class Benchmarks extends JFrame
    */
   private long runSort(double[] a, int sortMethod, int numberOfRuns)
   {
-    _____________________________________________________
-    ...
+
+    Random generator = new Random(seed);
+    for (int i=0;i<a.length;i++) {
+      a[i] = generator.nextDouble();
+    }
+    
+    long totalTime = 0;
+    for (int i=0;i<numberOfRuns;i++) {
+    long init =System.currentTimeMillis();
+    switch (sortMethod) {
+      case 1:
+        SelectionSort.sort(a);
+        break;
+      case 2:
+        InsertionSort.sort(a);
+        break;
+      case 3:
+        Mergesort.sort(a);
+        break;
+      case 4:
+        Quicksort.sort(a);
+        break;
+      case 5:
+        Arrays.sort(a);
+        break;
+
+    }
+    totalTime+=(System.currentTimeMillis()-init);
+  }
+  return totalTime;
   }
 
   /*
