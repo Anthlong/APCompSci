@@ -75,12 +75,12 @@ public class Benchmarks extends JFrame
   {
 
     Random generator = new Random(seed);
-    for (int i=0;i<a.length;i++) {
-      a[i] = generator.nextDouble();
-    }
     
     long totalTime = 0;
     for (int i=0;i<numberOfRuns;i++) {
+    for (int j=0;j<a.length;j++) {
+      a[j] = generator.nextDouble();
+    }
     long init =System.currentTimeMillis();
     switch (sortMethod) {
       case 1:
